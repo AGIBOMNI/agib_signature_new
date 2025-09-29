@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    container_name: agib-signature-prod
+    restart: unless-stopped
+    ports:
+      - "3112:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - VIRTUAL_PORT=3000
+      - NGINX_PROXY_CONTAINER=nginx.web
+      - VIRTUAL_HOST=signature.agib.gm
+      # - LETSENCRYPT_HOST=signature.agib.gm
+      # - LETSENCRYPT_EMAIL=swat@qcell.gm
+    networks:
+      - webproxy
+
+networks:
+  webproxy:
+    external: true

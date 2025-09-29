@@ -1,0 +1,173 @@
+"use client"
+
+import { useState } from "react"
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Card } from "@/components/ui/card"
+import { User, Briefcase, Mail, Phone, Plus, Eye } from "lucide-react"
+import DynamicSignatureCard from "./dynamic-signature-card"
+
+interface ContactInfo {
+  fullName: string
+  position: string
+  email: string
+  phoneNumber: string
+}
+
+export default function SignatureGenerator() {
+  const [contactInfo, setContactInfo] = useState<ContactInfo>({
+    fullName: "",
+    position: "",
+    email: "",
+    phoneNumber: "",
+  })
+
+  const [showSignature, setShowSignature] = useState(false)
+  const [generatedLink, setGeneratedLink] = useState("")
+
+  const handleInputChange = (field: keyof ContactInfo, value: string) => {
+    setContactInfo((prev) => ({
+      ...prev,
+      [field]: value,
+    }))
+  }
+
+  const handleGenerateCard = () => {
+    if (contactInfo.fullName && contactInfo.position && contactInfo.email && contactInfo.phoneNumber) {
+      setShowSignature(true)
+    }
+  }
+
+  const isFormValid = contactInfo.fullName && contactInfo.position && contactInfo.email && contactInfo.phoneNumber
+
+  const handleTakeScreenshot = () => {
+    // This will trigger the download function in the DynamicSignatureCard component
+    const event = new CustomEvent("takeScreenshot")
+    window.dispatchEvent(event)
+  }
+
+  return (
+    <div className="min-h-screen bg-gray-50 p-6">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 h-full">
+          <Card className="h-fit">
+            <div style={{ backgroundColor: "#68b74a", marginTop: "-1.5rem" }} className="px-6 py-4 rounded-t-lg ">
+              <div className="flex items-center gap-3 text-white">
+                <Plus className="w-6 h-6" />
+                <div>
+                  <h2 className="text-xl font-semibold">ADD YOUR INFORMATION</h2>
+                  <p className="text-green-100 text-sm">Create professional signature cards instantly</p>
+                </div>
+              </div>
+            </div>
+            <div className="p-6 space-y-6">
+              <div className="space-y-4">
+                <div>
+                  <Label htmlFor="fullName" className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2">
+                    <User className="w-4 h-4" />
+                    Full Name
+                  </Label>
+                  <Input
+                    id="fullName"
+                    type="text"
+                    placeholder="Alioune Badara"
+                    value={contactInfo.fullName}
+                    onChange={(e) => handleInputChange("fullName", e.target.value)}
+                    className="h-12"
+                  />
+                </div>
+
+                <div>
+                  <Label htmlFor="position" className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2">
+                    <Briefcase className="w-4 h-4" />
+                    Position/Title
+                  </Label>
+                  <Input
+                    id="position"
+                    type="text"
+                    placeholder="Lead Software Engineer"
+                    value={contactInfo.position}
+                    onChange={(e) => handleInputChange("position", e.target.value)}
+                    className="h-12"
+                  />
+                </div>
+
+                <div>
+                  <Label htmlFor="email" className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2">
+                    <Mail className="w-4 h-4" />
+                    Email Address
+                  </Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="aliouneb.keita@agib.gm"
+                    value={contactInfo.email}
+                    onChange={(e) => handleInputChange("email", e.target.value)}
+                    className="h-12"
+                  />
+                </div>
+
+                <div>
+                  <Label
+                    htmlFor="phoneNumber"
+                    className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2"
+                  >
+                    <Phone className="w-4 h-4" />
+                    Phone Number
+                  </Label>
+                  <Input
+                    id="phoneNumber"
+                    type="tel"
+                    placeholder="3451004"
+                    value={contactInfo.phoneNumber}
+                    onChange={(e) => handleInputChange("phoneNumber", e.target.value)}
+                    className="h-12"
+                  />
+                </div>
+              </div>
+            </div>
+          </Card>
+
+          <Card className="h-fit">
+            <div style={{ backgroundColor: "#68b74a", marginTop: "-1.5rem" }} className="px-6 py-4 rounded-t-lg">
+              <div className="flex items-center gap-3 text-white">
+                <Eye className="w-6 h-6" />
+                <div>
+                  <h2 className="text-xl font-semibold">Signature Card Preview</h2>
+                </div>
+              </div>
+            </div>
+            <div className="p-6">
+              {showSignature && isFormValid ? (
+                <div className="flex justify-center">
+                  <DynamicSignatureCard contactInfo={contactInfo} showDownload={true} />
+                </div>
+              ) : (
+                <div className="text-center text-gray-500 py-12 border-2 border-dashed border-gray-200 rounded-lg">
+                  <Eye className="w-12 h-12 mx-auto mb-4 text-gray-300" />
+                  <p className="text-lg font-medium mb-2">No Preview Available</p>
+                  <p>Fill in all fields to see your business card preview</p>
+                </div>
+              )}
+            </div>
+          </Card>
+        </div>
+
+        {!showSignature && (
+          <div className="mt-6 flex justify-center">
+            <Button
+              onClick={handleGenerateCard}
+              disabled={!isFormValid}
+              size="lg"
+              style={{ backgroundColor: isFormValid ? "#68B74A" : undefined }}
+              className="px-8 py-3 text-lg"
+            >
+              Generate Signature Card
+            </Button>
+          </div>
+        )}
+      </div>
+    </div>
+  )
+}
