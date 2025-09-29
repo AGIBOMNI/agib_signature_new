@@ -9,6 +9,7 @@ interface ContactInfo {
   position: string
   email: string
   phoneNumber: string
+  officeNumber?: string
 }
 
 interface DynamicSignatureCardProps {
@@ -55,14 +56,103 @@ export default function DynamicSignatureCard({ contactInfo, showDownload = false
           padding: "16px",
           width: "100%",
           maxWidth: "576px",
+          position: "relative",
+          overflow: "hidden",
+          // borderRadius: "12px",
         }}
       >
-        <div style={{ marginBottom: "12px" }}>
-          <h1 style={{ fontSize: "18px", fontWeight: "bold", marginBottom: "4px", color: "#68b74a" }}>
-            {contactInfo.fullName.toUpperCase()}
-          </h1>
-          <p style={{ color: "#4b5563", fontSize: "14px" }}>{contactInfo.position}</p>
-        </div>
+        {/* Decorative Bubbles */}
+        <div
+          style={{
+            position: "absolute",
+            top: "0px",
+            right: "-10px",
+            width: "80px",
+            height: "50px",
+            borderRadius: "50%",
+            backgroundImage: "url('/Agib_Favicon_3.png')",
+            backgroundSize: "contain",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            opacity: 0.15,
+            zIndex: 0,
+          }}
+        ></div>
+        <div
+          style={{
+            position: "absolute",
+            top: "30px",
+            right: "20px",
+            width: "30px",
+            height: "30px",
+            borderRadius: "50%",
+            // backgroundColor: "rgba(105, 183, 74, 0.39)",
+            zIndex: 0,
+          }}
+        ></div>
+        <div
+          style={{
+            position: "absolute",
+            bottom: "15px",
+            left: "-15px",
+            width: "260px",
+            height: "10px",
+            // borderRadius: "50%",
+            backgroundColor: "rgba(105, 183, 74, 0.23)" ,
+            // "rgba(105, 183, 74, 1)",
+            zIndex: 0,
+          }}
+        ></div>
+
+
+        {/* ...... */}
+        {/* <div
+          style={{
+            position: "absolute",
+            bottom: "15px",
+            left: "-15px",
+            width: "100px",
+            height: "2px",
+            // borderRadius: "50%",
+            backgroundColor: "rgba(105, 183, 74, 1)",
+            zIndex: 0,
+          }}
+        ></div> */}
+
+        {/* ...... */}
+        <div
+          style={{
+            position: "absolute",
+            bottom: "20px",
+            left: "40px",
+            width: "20px",
+            height: "20px",
+            borderRadius: "50%",
+            // backgroundColor: "rgba(105, 183, 74, 0.27)",
+            zIndex: 0,
+          }}
+        ></div>
+        <div
+          style={{
+            position: "absolute",
+            top: "10px",
+            left: "30%",
+            width: "40px",
+            height: "40px",
+            borderRadius: "50%",
+            // backgroundColor: "rgba(105, 183, 74, 0.22)",
+            zIndex: 0,
+          }}
+        ></div>
+        
+        {/* Main Content */}
+        <div style={{ position: "relative", zIndex: 1 }}>
+          <div style={{ marginBottom: "12px" }}>
+            <h1 style={{ fontSize: "18px", fontWeight: "bold", marginBottom: "4px", color: "#68b74a" }}>
+              {contactInfo.fullName.toUpperCase()}
+            </h1>
+            <p style={{ color: "#4b5563", fontSize: "14px" }}>{contactInfo.position}</p>
+          </div>
 
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <div style={{ flexShrink: 0, marginRight: "16px" }}>
@@ -181,9 +271,40 @@ export default function DynamicSignatureCard({ contactInfo, showDownload = false
                   marginTop: isGeneratingPNG ? "-15px" : "0px",
                 }}
               >
-                {contactInfo.phoneNumber}
+                {contactInfo.phoneNumber}{contactInfo.officeNumber ? ` / ${contactInfo.officeNumber}` : " / 3425142"}
               </span>
             </div>
+
+            {/* <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "20px 1fr",
+                alignItems: "center",
+                gap: "4px",
+                height: "16px",
+                color: "#374151",
+              }}
+            >
+              <Phone
+                style={{
+                  width: "12px",
+                  height: "12px",
+                  color: "#68b74a",
+                  justifySelf: "start",
+                  alignSelf: "center",
+                }}
+              />
+              <span
+                style={{
+                  fontSize: "12px",
+                  lineHeight: "16px",
+                  alignSelf: "center",
+                  marginTop: isGeneratingPNG ? "-15px" : "0px",
+                }}
+              >
+                3425142
+              </span>
+            </div> */}
 
             <div
               style={{
@@ -271,6 +392,7 @@ export default function DynamicSignatureCard({ contactInfo, showDownload = false
           >
             <Facebook style={{ width: "12px", height: "12px", color: "#ffffff" }} />
           </div>
+        </div>
         </div>
       </div>
 

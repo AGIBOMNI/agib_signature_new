@@ -7,12 +7,14 @@ import { Label } from "@/components/ui/label"
 import { Card } from "@/components/ui/card"
 import { User, Briefcase, Mail, Phone, Plus, Eye } from "lucide-react"
 import DynamicSignatureCard from "./dynamic-signature-card"
+import Image from "next/image"
 
 interface ContactInfo {
   fullName: string
   position: string
   email: string
   phoneNumber: string
+  officeNumber?: string
 }
 
 export default function SignatureGenerator() {
@@ -21,6 +23,7 @@ export default function SignatureGenerator() {
     position: "",
     email: "",
     phoneNumber: "",
+    officeNumber: "",
   })
 
   const [showSignature, setShowSignature] = useState(false)
@@ -49,6 +52,19 @@ export default function SignatureGenerator() {
 
   return (
     <div className="min-h-screen bg-gray-50 p-6">
+      {/* AGIB Logo Header */}
+      <div className="max-w-7xl mx-auto mb-20">
+        <div className="flex justify-center">
+          <Image
+            src="/agib-logo.png"
+            alt="AGIB Logo"
+            width={250}
+            height={80}
+            className="object-contain"
+          />
+        </div>
+      </div>
+      
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 h-full">
           <Card className="h-fit">
@@ -122,6 +138,24 @@ export default function SignatureGenerator() {
                     placeholder="3451004"
                     value={contactInfo.phoneNumber}
                     onChange={(e) => handleInputChange("phoneNumber", e.target.value)}
+                    className="h-12"
+                  />
+                </div>
+
+                <div>
+                  <Label
+                    htmlFor="officeNumber"
+                    className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2"
+                  >
+                    <Phone className="w-4 h-4" />
+                    Office Number (Optional)
+                  </Label>
+                  <Input
+                    id="officeNumber"
+                    type="tel"
+                    placeholder="3425142"
+                    value={contactInfo.officeNumber}
+                    onChange={(e) => handleInputChange("officeNumber", e.target.value)}
                     className="h-12"
                   />
                 </div>
