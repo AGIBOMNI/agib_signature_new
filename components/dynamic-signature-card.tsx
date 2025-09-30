@@ -100,7 +100,7 @@ export default function DynamicSignatureCard({ contactInfo, showDownload = false
             width: "260px",
             height: "10px",
             // borderRadius: "50%",
-            backgroundColor: "rgba(105, 183, 74, 0.23)" ,
+            backgroundColor: "rgba(105, 183, 74, 1)" ,
             // "rgba(105, 183, 74, 1)",
             zIndex: 0,
           }}
@@ -182,37 +182,6 @@ export default function DynamicSignatureCard({ contactInfo, showDownload = false
                 color: "#374151",
               }}
             >
-              <MapPin
-                style={{
-                  width: "12px",
-                  height: "12px",
-                  color: "#68b74a",
-                  justifySelf: "start",
-                  alignSelf: "center",
-                }}
-              />
-              <span
-                style={{
-                  fontSize: "12px",
-                  lineHeight: "16px",
-                  alignSelf: "center",
-                  marginTop: isGeneratingPNG ? "-15px" : "0px",
-                }}
-              >
-                19 Kairaba Avenue
-              </span>
-            </div>
-
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "20px 1fr",
-                alignItems: "center",
-                gap: "4px",
-                height: "16px",
-                color: "#374151",
-              }}
-            >
               <Mail
                 style={{
                   width: "12px",
@@ -233,6 +202,42 @@ export default function DynamicSignatureCard({ contactInfo, showDownload = false
                 {contactInfo.email}
               </span>
             </div>
+            
+            
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "30px 1fr",
+                alignItems: "left",
+                gap: "4px",
+                height: "16px",
+                color: "#374151",
+              }}
+            >
+              <MapPin
+                style={{
+                  width: "12px",
+                  height: "12px",
+                  color: "#68b74a",
+                  justifySelf: "start",
+                  alignSelf: "center",
+                  
+                }}
+              />
+              <span
+                style={{
+                  fontSize: "10px",
+                  lineHeight: "11px",
+                  alignSelf: "left",
+                  marginTop: isGeneratingPNG ? "-5px" : "0px",
+                  marginLeft: "-10px",
+                }}
+              >
+                19 Kairaba Avenue Kanifing, <br /> KMC The Gambia Box 1415
+              </span>
+            </div>
+
+            
           </div>
 
           <div
@@ -273,7 +278,7 @@ export default function DynamicSignatureCard({ contactInfo, showDownload = false
                   marginTop: isGeneratingPNG ? "-15px" : "0px",
                 }}
               >
-                {contactInfo.phoneNumber}{contactInfo.officeNumber ? ` / ${contactInfo.officeNumber}` : ""}
+               +220 {contactInfo.phoneNumber}{contactInfo.officeNumber ? ` / ${contactInfo.officeNumber}` : ""}
               </span>
             </div>
 
