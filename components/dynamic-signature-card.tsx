@@ -3,6 +3,7 @@
 import { useRef, useState } from "react"
 import Image from "next/image"
 import { Mail, MapPin, Phone, Globe, Twitter, Linkedin, Facebook } from "lucide-react"
+import { url } from "inspector"
 
 interface ContactInfo {
   fullName: string
@@ -51,7 +52,8 @@ export default function DynamicSignatureCard({ contactInfo, showDownload = false
       <div
         ref={cardRef}
         style={{
-          backgroundColor: "#ffffff",
+          // backgroundColor: "#ffffff",
+          backgroundImage: 'url("/new_bg.png")',
           boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
           padding: "16px",
           width: "100%",
