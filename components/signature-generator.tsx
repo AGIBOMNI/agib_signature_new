@@ -181,7 +181,7 @@ export default function SignatureGenerator() {
                 <div className="text-center text-gray-500 py-12 border-2 border-dashed border-gray-200 rounded-lg">
                   <Eye className="w-12 h-12 mx-auto mb-4 text-gray-300" />
                   <p className="text-lg font-medium mb-2">No Preview Available</p>
-                  <p>Fill in all fields to see your business card preview</p>
+                  <p>Fill in all fields to see your signature card preview</p>
                 </div>
               )}
             </div>
