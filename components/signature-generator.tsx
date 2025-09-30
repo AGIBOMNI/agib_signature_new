@@ -185,10 +185,8 @@ export default function SignatureGenerator() {
                 </div>
               )}
             </div>
-          </Card>
-        </div>
 
-        {!showSignature && (
+            {!showSignature && (
           <div className="mt-6 flex justify-center">
             <Button
               onClick={handleGenerateCard}
@@ -201,6 +199,25 @@ export default function SignatureGenerator() {
             </Button>
           </div>
         )}
+          </Card>
+
+          
+        </div>
+
+        {/* {!showSignature && (
+          <div className="mt-6 flex justify-center">
+            <Button
+              onClick={handleGenerateCard}
+              disabled={!isFormValid}
+              size="lg"
+              style={{ backgroundColor: isFormValid ? "#68B74A" : undefined }}
+              className="px-8 py-3 text-lg"
+            >
+              Generate Signature Card
+            </Button>
+          </div>
+        )} */}
+
       </div>
     </div>
   )
