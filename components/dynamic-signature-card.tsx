@@ -273,7 +273,7 @@ export default function DynamicSignatureCard({ contactInfo, showDownload = false
                   marginTop: isGeneratingPNG ? "-15px" : "0px",
                 }}
               >
-                {contactInfo.phoneNumber}{contactInfo.officeNumber ? ` / ${contactInfo.officeNumber}` : " / 3425142"}
+                {contactInfo.phoneNumber}{contactInfo.officeNumber ? ` / ${contactInfo.officeNumber}` : ""}
               </span>
             </div>
 
