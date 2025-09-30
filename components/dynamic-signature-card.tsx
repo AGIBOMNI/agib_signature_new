@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react"
 import Image from "next/image"
-import { Mail, MapPin, Phone, Globe, Twitter, Linkedin, Facebook } from "lucide-react"
+import { Mail, MapPin, Phone, Globe, Twitter, Linkedin, Facebook, PhoneCall, Building, Building2, Building2Icon } from "lucide-react"
 import { url } from "inspector"
 
 interface ContactInfo {
@@ -278,9 +278,43 @@ export default function DynamicSignatureCard({ contactInfo, showDownload = false
                   marginTop: isGeneratingPNG ? "-15px" : "0px",
                 }}
               >
-               +220 {contactInfo.phoneNumber}{contactInfo.officeNumber ? ` / ${contactInfo.officeNumber}` : ""}
+               +220 {contactInfo.phoneNumber}
               </span>
             </div>
+
+            {
+              contactInfo.officeNumber ? (
+              
+              <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "20px 1fr",
+                alignItems: "center",
+                gap: "4px",
+                height: "16px",
+                color: "#374151",
+              }}
+            >
+              <Building2
+                style={{
+                  width: "12px",
+                  height: "12px",
+                  color: "#68b74a",
+                  justifySelf: "start",
+                  alignSelf: "center",
+                }}
+              />
+              <span
+                style={{
+                  fontSize: contactInfo.officeNumber ? "9px" : "12px",
+                  lineHeight: "16px",
+                  alignSelf: "center",
+                  marginTop: isGeneratingPNG ? "-15px" : "0px",
+                }}
+              >
+              {contactInfo.officeNumber ? ` +220 ${contactInfo.officeNumber}` : ""}
+              </span>
+            </div> ) : null}
 
             {/* <div
               style={{
@@ -334,7 +368,7 @@ export default function DynamicSignatureCard({ contactInfo, showDownload = false
               />
               <span
                 style={{
-                  fontSize: "12px",
+                  fontSize: "9px",
                   lineHeight: "16px",
                   alignSelf: "center",
                   marginTop: isGeneratingPNG ? "-15px" : "0px",
