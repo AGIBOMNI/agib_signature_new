@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react"
 import Image from "next/image"
-import { Mail, MapPin, Phone, Globe, Twitter, Linkedin, Facebook, PhoneCall, Building, Building2, Building2Icon } from "lucide-react"
+import { Mail, MapPin, Phone, Globe, Twitter, Linkedin, Facebook, PhoneCall, Building, Building2, Building2Icon, LucidePhone, PhoneIcon, PhoneCallIcon } from "lucide-react"
 import { url } from "inspector"
 
 interface ContactInfo {
@@ -153,7 +153,7 @@ export default function DynamicSignatureCard({ contactInfo, showDownload = false
             <h1 style={{ fontSize: "18px", fontWeight: "bold", marginBottom: "4px", color: "#68b74a" }}>
               {contactInfo.fullName.toUpperCase()}
             </h1>
-            <p style={{ color: "#4b5563", fontSize: "14px" }}>{contactInfo.position}</p>
+            <p style={{ color: "#cd915b", fontSize: "14px", fontWeight: 400 }}>{contactInfo.position}</p>
           </div>
 
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
@@ -261,7 +261,7 @@ export default function DynamicSignatureCard({ contactInfo, showDownload = false
                 color: "#374151",
               }}
             >
-              <Phone
+              <PhoneCallIcon
                 style={{
                   width: "12px",
                   height: "12px",
@@ -272,7 +272,7 @@ export default function DynamicSignatureCard({ contactInfo, showDownload = false
               />
               <span
                 style={{
-                  fontSize: contactInfo.officeNumber ? "9px" : "12px",
+                  fontSize: contactInfo.officeNumber ? "9px" : "9px",
                   lineHeight: "16px",
                   alignSelf: "center",
                   marginTop: isGeneratingPNG ? "-15px" : "0px",
@@ -306,7 +306,7 @@ export default function DynamicSignatureCard({ contactInfo, showDownload = false
               />
               <span
                 style={{
-                  fontSize: contactInfo.officeNumber ? "9px" : "12px",
+                  fontSize: contactInfo.officeNumber ? "9px" : "9px",
                   lineHeight: "16px",
                   alignSelf: "center",
                   marginTop: isGeneratingPNG ? "-15px" : "0px",
@@ -368,7 +368,7 @@ export default function DynamicSignatureCard({ contactInfo, showDownload = false
               />
               <span
                 style={{
-                  fontSize: "9px",
+                  fontSize: "10px",
                   lineHeight: "16px",
                   alignSelf: "center",
                   marginTop: isGeneratingPNG ? "-15px" : "0px",
