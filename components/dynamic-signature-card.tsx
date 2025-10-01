@@ -55,9 +55,9 @@ export default function DynamicSignatureCard({ contactInfo, showDownload = false
           // backgroundColor: "#ffffff",
           backgroundImage: 'url("/new_bg.png")',
           boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
-          padding: "16px",
+          padding: "12px",
           width: "100%",
-          maxWidth: "576px",
+          maxWidth: "350px",
           position: "relative",
           overflow: "hidden",
           // borderRadius: "12px",
@@ -68,9 +68,9 @@ export default function DynamicSignatureCard({ contactInfo, showDownload = false
           style={{
             position: "absolute",
             top: "0px",
-            right: "-10px",
-            width: "80px",
-            height: "50px",
+            right: "-8px",
+            width: "65px",
+            height: "40px",
             borderRadius: "50%",
             backgroundImage: "url('/Agib_Favicon_3.png')",
             backgroundSize: "contain",
@@ -83,10 +83,10 @@ export default function DynamicSignatureCard({ contactInfo, showDownload = false
         <div
           style={{
             position: "absolute",
-            top: "30px",
-            right: "20px",
-            width: "30px",
-            height: "30px",
+            top: "25px",
+            right: "15px",
+            width: "25px",
+            height: "25px",
             borderRadius: "50%",
             // backgroundColor: "rgba(105, 183, 74, 0.39)",
             zIndex: 0,
@@ -95,10 +95,10 @@ export default function DynamicSignatureCard({ contactInfo, showDownload = false
         <div
           style={{
             position: "absolute",
-            bottom: "15px",
-            left: "-15px",
-            width: "260px",
-            height: "10px",
+            bottom: "12px",
+            left: "-12px",
+            width: "220px",
+            height: "8px",
             // borderRadius: "50%",
             backgroundColor: "rgba(105, 183, 74, 1)" ,
             // "rgba(105, 183, 74, 1)",
@@ -125,10 +125,10 @@ export default function DynamicSignatureCard({ contactInfo, showDownload = false
         <div
           style={{
             position: "absolute",
-            bottom: "20px",
-            left: "40px",
-            width: "20px",
-            height: "20px",
+            bottom: "16px",
+            left: "32px",
+            width: "16px",
+            height: "16px",
             borderRadius: "50%",
             // backgroundColor: "rgba(105, 183, 74, 0.27)",
             zIndex: 0,
@@ -137,10 +137,10 @@ export default function DynamicSignatureCard({ contactInfo, showDownload = false
         <div
           style={{
             position: "absolute",
-            top: "10px",
+            top: "8px",
             left: "30%",
-            width: "40px",
-            height: "40px",
+            width: "32px",
+            height: "32px",
             borderRadius: "50%",
             // backgroundColor: "rgba(105, 183, 74, 0.22)",
             zIndex: 0,
@@ -149,43 +149,43 @@ export default function DynamicSignatureCard({ contactInfo, showDownload = false
         
         {/* Main Content */}
         <div style={{ position: "relative", zIndex: 1 }}>
-          <div style={{ marginBottom: "12px" }}>
-            <h1 style={{ fontSize: "18px", fontWeight: "bold", marginBottom: "4px", color: "#68b74a" }}>
+          <div style={{ marginBottom: "10px" }}>
+            <h1 style={{ fontSize: "16px", fontWeight: "bold", marginBottom: "3px", color: "#68b74a" }}>
               {contactInfo.fullName.toUpperCase()}
             </h1>
-            <p style={{ color: "#cd915b", fontSize: "14px", fontWeight: 400 }}>{contactInfo.position}</p>
+            <p style={{ color: "#cd915b", fontSize: "12px", fontWeight: 400 }}>{contactInfo.position}</p>
           </div>
 
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-          <div style={{ flexShrink: 0, marginRight: "16px" }}>
-            <Image src="/agib-logo.png" alt="Agib Bank Ltd" width={126} height={50} className="object-contain" />
+          <div style={{ flexShrink: 0, marginRight: "12px" }}>
+            <Image src="/agib-logo.png" alt="Agib Bank Ltd" width={100} height={40} className="object-contain" />
           </div>
 
           <div
             style={{
               borderLeft: "1px solid #eab308",
-              height: "48px",
-              marginLeft: "12px",
-              marginRight: "12px",
+              height: "40px",
+              marginLeft: "8px",
+              marginRight: "8px",
               opacity: 0.4,
             }}
           ></div>
 
-          <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "8px" }}>
+          <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "6px" }}>
             <div
               style={{
                 display: "grid",
-                gridTemplateColumns: "20px 1fr",
+                gridTemplateColumns: "16px 1fr",
                 alignItems: "center",
-                gap: "4px",
-                height: "16px",
+                gap: "3px",
+                height: "14px",
                 color: "#374151",
               }}
             >
               <Mail
                 style={{
-                  width: "12px",
-                  height: "12px",
+                  width: "10px",
+                  height: "10px",
                   color: "#68b74a",
                   justifySelf: "start",
                   alignSelf: "center",
@@ -193,10 +193,10 @@ export default function DynamicSignatureCard({ contactInfo, showDownload = false
               />
               <span
                 style={{
-                  fontSize: "9px",
-                  lineHeight: "16px",
+                  fontSize: "8px",
+                  lineHeight: "14px",
                   alignSelf: "center",
-                  marginTop: isGeneratingPNG ? "-15px" : "0px",
+                  marginTop: isGeneratingPNG ? "-12px" : "0px",
                 }}
               >
                 {contactInfo.email}
@@ -207,17 +207,17 @@ export default function DynamicSignatureCard({ contactInfo, showDownload = false
             <div
               style={{
                 display: "grid",
-                gridTemplateColumns: "30px 1fr",
+                gridTemplateColumns: "24px 1fr",
                 alignItems: "left",
-                gap: "4px",
-                height: "16px",
+                gap: "3px",
+                height: "14px",
                 color: "#374151",
               }}
             >
               <MapPin
                 style={{
-                  width: "12px",
-                  height: "12px",
+                  width: "10px",
+                  height: "10px",
                   color: "#68b74a",
                   justifySelf: "start",
                   alignSelf: "center",
@@ -226,11 +226,11 @@ export default function DynamicSignatureCard({ contactInfo, showDownload = false
               />
               <span
                 style={{
-                  fontSize: "7px",
-                  lineHeight: "11px",
+                  fontSize: "6px",
+                  lineHeight: "9px",
                   alignSelf: "left",
-                  marginTop: isGeneratingPNG ? "-5px" : "0px",
-                  marginLeft: "-10px",
+                  marginTop: isGeneratingPNG ? "-4px" : "0px",
+                  marginLeft: "-8px",
                 }}
               >
                 19 Kairaba Avenue, <br /> Kanifing, KMC, P.O Box 1415 <br /> The Gambia
@@ -244,28 +244,28 @@ export default function DynamicSignatureCard({ contactInfo, showDownload = false
           <div
             style={{
               borderLeft: "1px solid #eab308",
-              height: "48px",
-              marginLeft: "12px",
-              marginRight: "12px",
+              height: "40px",
+              marginLeft: "8px",
+              marginRight: "8px",
               opacity: 0.4,
             }}
           ></div>
 
-          <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "8px" }}>
+          <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "6px" }}>
             <div
               style={{
                 display: "grid",
-                gridTemplateColumns: "20px 1fr",
+                gridTemplateColumns: "16px 1fr",
                 alignItems: "center",
-                gap: "4px",
-                height: "16px",
+                gap: "3px",
+                height: "14px",
                 color: "#374151",
               }}
             >
               <PhoneCallIcon
                 style={{
-                  width: "12px",
-                  height: "12px",
+                  width: "10px",
+                  height: "10px",
                   color: "#68b74a",
                   justifySelf: "start",
                   alignSelf: "center",
@@ -273,10 +273,10 @@ export default function DynamicSignatureCard({ contactInfo, showDownload = false
               />
               <span
                 style={{
-                  fontSize: contactInfo.officeNumber ? "9px" : "9px",
-                  lineHeight: "16px",
+                  fontSize: "8px",
+                  lineHeight: "14px",
                   alignSelf: "center",
-                  marginTop: isGeneratingPNG ? "-15px" : "0px",
+                  marginTop: isGeneratingPNG ? "-12px" : "0px",
                 }}
               >
                +220 {contactInfo.phoneNumber}
@@ -289,17 +289,17 @@ export default function DynamicSignatureCard({ contactInfo, showDownload = false
               <div
               style={{
                 display: "grid",
-                gridTemplateColumns: "20px 1fr",
+                gridTemplateColumns: "16px 1fr",
                 alignItems: "center",
-                gap: "4px",
-                height: "16px",
+                gap: "3px",
+                height: "14px",
                 color: "#374151",
               }}
             >
               <Building2
                 style={{
-                  width: "12px",
-                  height: "12px",
+                  width: "10px",
+                  height: "10px",
                   color: "#68b74a",
                   justifySelf: "start",
                   alignSelf: "center",
@@ -307,10 +307,10 @@ export default function DynamicSignatureCard({ contactInfo, showDownload = false
               />
               <span
                 style={{
-                  fontSize: contactInfo.officeNumber ? "9px" : "9px",
-                  lineHeight: "16px",
+                  fontSize: "8px",
+                  lineHeight: "14px",
                   alignSelf: "center",
-                  marginTop: isGeneratingPNG ? "-15px" : "0px",
+                  marginTop: isGeneratingPNG ? "-12px" : "0px",
                 }}
               >
               {contactInfo.officeNumber ? ` +220 ${contactInfo.officeNumber}` : ""}
@@ -351,17 +351,17 @@ export default function DynamicSignatureCard({ contactInfo, showDownload = false
             <div
               style={{
                 display: "grid",
-                gridTemplateColumns: "20px 1fr",
+                gridTemplateColumns: "16px 1fr",
                 alignItems: "center",
-                gap: "4px",
-                height: "16px",
+                gap: "3px",
+                height: "14px",
                 color: "#374151",
               }}
             >
               <Globe
                 style={{
-                  width: "12px",
-                  height: "12px",
+                  width: "10px",
+                  height: "10px",
                   color: "#68b74a",
                   justifySelf: "start",
                   alignSelf: "center",
@@ -369,10 +369,10 @@ export default function DynamicSignatureCard({ contactInfo, showDownload = false
               />
               <span
                 style={{
-                  fontSize: "10px",
-                  lineHeight: "16px",
+                  fontSize: "9px",
+                  lineHeight: "14px",
                   alignSelf: "center",
-                  marginTop: isGeneratingPNG ? "-15px" : "0px",
+                  marginTop: isGeneratingPNG ? "-12px" : "0px",
                 }}
               >
                 www.agib.gm
@@ -381,58 +381,58 @@ export default function DynamicSignatureCard({ contactInfo, showDownload = false
           </div>
         </div>
 
-        <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "12px", gap: "4px" }}>
+        <div style={{ display: "flex", justifyContent: "flex-end", marginTop: "10px", gap: "3px" }}>
           <div
             style={{
-              width: "24px",
-              height: "24px",
-              borderRadius: "4px",
+              width: "20px",
+              height: "20px",
+              borderRadius: "3px",
               backgroundColor: "#68b74a",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
             }}
           >
-            <Twitter style={{ width: "12px", height: "12px", color: "#ffffff" }} />
+            <Twitter style={{ width: "10px", height: "10px", color: "#ffffff" }} />
           </div>
           <div
             style={{
-              width: "24px",
-              height: "24px",
-              borderRadius: "4px",
+              width: "20px",
+              height: "20px",
+              borderRadius: "3px",
               backgroundColor: "#68b74a",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
             }}
           >
-            <Linkedin style={{ width: "12px", height: "12px", color: "#ffffff" }} />
+            <Linkedin style={{ width: "10px", height: "10px", color: "#ffffff" }} />
           </div>
           <div
             style={{
-              width: "24px",
-              height: "24px",
-              borderRadius: "4px",
+              width: "20px",
+              height: "20px",
+              borderRadius: "3px",
               backgroundColor: "#68b74a",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
             }}
           >
-            <Mail style={{ width: "12px", height: "12px", color: "#ffffff" }} />
+            <Mail style={{ width: "10px", height: "10px", color: "#ffffff" }} />
           </div>
           <div
             style={{
-              width: "24px",
-              height: "24px",
-              borderRadius: "4px",
+              width: "20px",
+              height: "20px",
+              borderRadius: "3px",
               backgroundColor: "#68b74a",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
             }}
           >
-            <Facebook style={{ width: "12px", height: "12px", color: "#ffffff" }} />
+            <Facebook style={{ width: "10px", height: "10px", color: "#ffffff" }} />
           </div>
         </div>
         </div>
