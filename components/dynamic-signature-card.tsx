@@ -226,15 +226,15 @@ export default function DynamicSignatureCard({ contactInfo, showDownload = false
               />
               <span
                 style={{
-                  fontSize: "8px",
+                  fontSize: "7px",
                   lineHeight: "11px",
                   alignSelf: "left",
                   marginTop: isGeneratingPNG ? "-5px" : "0px",
                   marginLeft: "-10px",
                 }}
               >
-                19 Kairaba Avenue,<br />Kanifing, KMC P.O Box 1415 The Gambia
-                
+                19 Kairaba Avenue, <br /> Kanifing, KMC, P.O Box 1415 <br /> The Gambia
+        
               </span>
             </div>
 
