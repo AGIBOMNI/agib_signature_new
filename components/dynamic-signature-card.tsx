@@ -227,7 +227,7 @@ export default function DynamicSignatureCard({ contactInfo, showDownload = false
               />
               <span
                 style={{
-                  fontSize: "7px",
+                  fontSize: "6px",
                   lineHeight: "9px",
                   alignSelf: "left",
                   marginTop: isGeneratingPNG ? "-4px" : "0px",
