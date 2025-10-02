@@ -31,7 +31,7 @@ export default function DynamicSignatureCard({ contactInfo, showDownload = false
       const html2canvas = (await import("html2canvas")).default
       const canvas = await html2canvas(cardRef.current, {
         backgroundColor: "#ffffff",
-        scale: 2,
+        scale: 2.2,
         useCORS: true,
         allowTaint: true,
       })
@@ -55,9 +55,10 @@ export default function DynamicSignatureCard({ contactInfo, showDownload = false
           // backgroundColor: "#ffffff",
           backgroundImage: 'url("/new_bg.png")',
           boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
-          padding: "12px",
+          padding: "10px",
           width: "100%",
           maxWidth: "360px",
+          maxHeight: "155px",
           position: "relative",
           overflow: "hidden",
           // borderRadius: "12px",
@@ -157,8 +158,8 @@ export default function DynamicSignatureCard({ contactInfo, showDownload = false
           </div>
 
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-          <div style={{ flexShrink: 0, marginRight: "12px" }}>
-            <Image src="/agib-logo.png" alt="Agib Bank Ltd" width={100} height={40} className="object-contain" />
+          <div style={{ flexShrink: 0, marginRight: "5px" }}>
+            <Image src="/agib-logo.png" alt="Agib Bank Ltd" width={100} height={60} className="object-contain" />
           </div>
 
           <div
@@ -193,7 +194,7 @@ export default function DynamicSignatureCard({ contactInfo, showDownload = false
               />
               <span
                 style={{
-                  fontSize: "8px",
+                  fontSize: "7px",
                   lineHeight: "14px",
                   alignSelf: "center",
                   marginTop: isGeneratingPNG ? "-12px" : "0px",
@@ -226,7 +227,7 @@ export default function DynamicSignatureCard({ contactInfo, showDownload = false
               />
               <span
                 style={{
-                  fontSize: "6px",
+                  fontSize: "7px",
                   lineHeight: "9px",
                   alignSelf: "left",
                   marginTop: isGeneratingPNG ? "-4px" : "0px",
@@ -273,7 +274,7 @@ export default function DynamicSignatureCard({ contactInfo, showDownload = false
               />
               <span
                 style={{
-                  fontSize: "8px",
+                  fontSize: "6px",
                   lineHeight: "14px",
                   alignSelf: "center",
                   marginTop: isGeneratingPNG ? "-12px" : "0px",
@@ -307,7 +308,7 @@ export default function DynamicSignatureCard({ contactInfo, showDownload = false
               />
               <span
                 style={{
-                  fontSize: "8px",
+                  fontSize: "6px",
                   lineHeight: "14px",
                   alignSelf: "center",
                   marginTop: isGeneratingPNG ? "-12px" : "0px",
@@ -369,7 +370,7 @@ export default function DynamicSignatureCard({ contactInfo, showDownload = false
               />
               <span
                 style={{
-                  fontSize: "9px",
+                  fontSize: "6px",
                   lineHeight: "14px",
                   alignSelf: "center",
                   marginTop: isGeneratingPNG ? "-12px" : "0px",
