@@ -5,7 +5,8 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card } from "@/components/ui/card"
-import { User, Briefcase, Mail, Phone, Plus, Eye } from "lucide-react"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { User, Briefcase, Mail, Phone, Plus, Eye, MapPin } from "lucide-react"
 import DynamicSignatureCard from "./dynamic-signature-card"
 import Image from "next/image"
 
@@ -16,6 +17,45 @@ interface ContactInfo {
   phoneNumber: string
   officeNumber?: string
 }
+
+const branchAddresses = [
+  {
+    name: "Kairaba Branch",
+    value: "19 Kairaba Avenue,\nKanifing, KMC, P.O Box 1415\nThe Gambia"
+  },
+  {
+    name: "Banjul Branch",
+    value: "Becca Plaza\n5/6 Liberation Avenue ,P.O Box 1415\nThe Banjul"
+  },
+  {
+    name: "New Jeshwang Branch",
+    value: "Mamadi Manjang Highway,\nSerrekunda,KMC, P.O Box 1415\nThe Gambia"
+  },
+  {
+    name: "Tranquil Branch",
+    value: "Brufut Highway,\nTranquil,WCR, P.O Box 1415\nThe Gambia"
+  },
+  {
+    name: "Bakoteh Branch",
+    value: "Manjai Highway\nBakoteh,KMC, P.O Box 1415\nThe Gambia"
+  },
+  {
+    name: "Latrikunda Branch",
+    value: "Latrikuda Sabiji\nLatrikunda,KMC, P.O Box 1415\nThe Gambia"
+  },
+  {
+    name: "Brikama Branch",
+    value: "Mosque Road\nBrikama, WCR, P.O Box 1415\nThe Gambia"
+  },
+  {
+    name: "Farafenni Branch",
+    value: "North Bank Region,\nFarafenni,NBR, P.O Box 1415\nThe Gambia"
+  },
+  {
+    name: "Basse Branch",
+    value: "Basse Santosu,\nBasse, URR, P.O Box 1415\nThe Gambia"
+  }
+]
 
 export default function SignatureGenerator() {
   const [contactInfo, setContactInfo] = useState<ContactInfo>({
@@ -28,6 +68,7 @@ export default function SignatureGenerator() {
 
   const [showSignature, setShowSignature] = useState(false)
   const [generatedLink, setGeneratedLink] = useState("")
+  const [selectedBranch, setSelectedBranch] = useState(branchAddresses[0])
 
   const handleInputChange = (field: keyof ContactInfo, value: string) => {
     setContactInfo((prev) => ({
@@ -51,8 +92,9 @@ export default function SignatureGenerator() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
-      {/* AGIB Logo Header */}
+    <>
+      <div className="min-h-screen bg-gray-50 p-6">
+        {/* AGIB Logo Header */}
       <div className="max-w-7xl mx-auto mb-20">
         <div className="flex justify-center">
           <Image
@@ -79,85 +121,122 @@ export default function SignatureGenerator() {
             </div>
             <div className="p-6 space-y-6">
               <div className="space-y-4">
-                <div>
-                  <Label htmlFor="fullName" className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2">
-                    <User className="w-4 h-4" />
-                    Full Name
-                  </Label>
-                  <Input
-                    id="fullName"
-                    type="text"
-                    placeholder="Alioune Badara"
-                    value={contactInfo.fullName}
-                    onChange={(e) => handleInputChange("fullName", e.target.value)}
-                    className="h-12"
-                  />
+                {/* Row 1: Full Name and Position */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="fullName" className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2">
+                      <User className="w-4 h-4" />
+                      Full Name
+                    </Label>
+                    <Input
+                      id="fullName"
+                      type="text"
+                      placeholder="Alioune Badara"
+                      value={contactInfo.fullName}
+                      onChange={(e) => handleInputChange("fullName", e.target.value)}
+                      className="h-12"
+                    />
+                  </div>
+
+                  <div>
+                    <Label htmlFor="position" className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2">
+                      <Briefcase className="w-4 h-4" />
+                      Position/Title
+                    </Label>
+                    <Input
+                      id="position"
+                      type="text"
+                      placeholder="Lead Software Engineer"
+                      value={contactInfo.position}
+                      onChange={(e) => handleInputChange("position", e.target.value)}
+                      className="h-12"
+                    />
+                  </div>
                 </div>
 
-                <div>
-                  <Label htmlFor="position" className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2">
-                    <Briefcase className="w-4 h-4" />
-                    Position/Title
-                  </Label>
-                  <Input
-                    id="position"
-                    type="text"
-                    placeholder="Lead Software Engineer"
-                    value={contactInfo.position}
-                    onChange={(e) => handleInputChange("position", e.target.value)}
-                    className="h-12"
-                  />
+                {/* Row 2: Email and Branch Location */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="email" className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2">
+                      <Mail className="w-4 h-4" />
+                      Email Address
+                    </Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      placeholder="aliouneb.keita@agib.gm"
+                      value={contactInfo.email}
+                      onChange={(e) => handleInputChange("email", e.target.value)}
+                      className="h-12"
+                    />
+                  </div>
+
+                  <div>
+                    <Label
+                      htmlFor="branch-select"
+                      className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2"
+                    >
+                      <MapPin className="w-4 h-4" />
+                      Select Branch Address
+                    </Label>
+                    <Select
+                      value={selectedBranch.name}
+                      onValueChange={(value) => {
+                        const branch = branchAddresses.find(b => b.name === value)
+                        if (branch) setSelectedBranch(branch)
+                      }}
+                    >
+                      <SelectTrigger className="h-12 w-full focus:ring-green-500">
+                        <SelectValue placeholder="Select a branch" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {branchAddresses.map((branch) => (
+                          <SelectItem key={branch.name} value={branch.name}>
+                            {branch.name}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
                 </div>
 
-                <div>
-                  <Label htmlFor="email" className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2">
-                    <Mail className="w-4 h-4" />
-                    Email Address
-                  </Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="aliouneb.keita@agib.gm"
-                    value={contactInfo.email}
-                    onChange={(e) => handleInputChange("email", e.target.value)}
-                    className="h-12"
-                  />
-                </div>
+                {/* Row 3: Phone Number and Office Number */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <Label
+                      htmlFor="phoneNumber"
+                      className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2"
+                    >
+                      <Phone className="w-4 h-4" />
+                      Phone Number
+                    </Label>
+                    <Input
+                      id="phoneNumber"
+                      type="tel"
+                      placeholder="3451004"
+                      value={contactInfo.phoneNumber}
+                      onChange={(e) => handleInputChange("phoneNumber", e.target.value)}
+                      className="h-12"
+                    />
+                  </div>
 
-                <div>
-                  <Label
-                    htmlFor="phoneNumber"
-                    className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2"
-                  >
-                    <Phone className="w-4 h-4" />
-                    Phone Number
-                  </Label>
-                  <Input
-                    id="phoneNumber"
-                    type="tel"
-                    placeholder="3451004"
-                    value={contactInfo.phoneNumber}
-                    onChange={(e) => handleInputChange("phoneNumber", e.target.value)}
-                    className="h-12"
-                  />
-                </div>
-
-                <div>
-                  <Label
-                    htmlFor="officeNumber"
-                    className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2"
-                  >
-                    <Phone className="w-4 h-4" />
-                    Office Number (Optional)
-                  </Label>
-                  <Input
-                    id="officeNumber"
-                    type="tel"
-                    placeholder="3425142"
-                    value={contactInfo.officeNumber}
-                    onChange={(e) => handleInputChange("officeNumber", e.target.value)}
-                    className="h-12"
-                  />
+                  <div>
+                    <Label
+                      htmlFor="officeNumber"
+                      className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-2"
+                    >
+                      <Phone className="w-4 h-4" />
+                      Office Number (Optional)
+                    </Label>
+                    <Input
+                      id="officeNumber"
+                      type="tel"
+                      placeholder="3425142"
+                      value={contactInfo.officeNumber}
+                      onChange={(e) => handleInputChange("officeNumber", e.target.value)}
+                      className="h-12"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -175,7 +254,7 @@ export default function SignatureGenerator() {
             <div className="p-6">
               {showSignature && isFormValid ? (
                 <div className="flex justify-center">
-                  <DynamicSignatureCard contactInfo={contactInfo} showDownload={true} />
+                  <DynamicSignatureCard contactInfo={contactInfo} selectedBranch={selectedBranch} showDownload={true} />
                 </div>
               ) : (
                 <div className="text-center text-gray-500 py-12 border-2 border-dashed border-gray-200 rounded-lg">
@@ -220,5 +299,6 @@ export default function SignatureGenerator() {
 
       </div>
     </div>
+    </>
   )
 }

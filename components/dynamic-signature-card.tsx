@@ -15,12 +15,58 @@ interface ContactInfo {
 
 interface DynamicSignatureCardProps {
   contactInfo: ContactInfo
+  selectedBranch?: {
+    name: string
+    value: string
+  }
   showDownload?: boolean
 }
 
-export default function DynamicSignatureCard({ contactInfo, showDownload = false }: DynamicSignatureCardProps) {
+const branchAddresses = [
+  {
+    name: "Kairaba Branch",
+    value: "19 Kairaba Avenue,\nKanifing, KMC, P.O Box 1415\nThe Gambia"
+  },
+  {
+    name: "Banjul Branch",
+    value: "Becca Plaza\n5/6 Liberation Avenue\nP.O. Box 1415\nBanjul"
+  },
+  {
+    name: "New Jeshwang Branch",
+    value: "Mamadi Manjang Highway\nSerrekunda"
+  },
+  {
+    name: "Tranquil Branch",
+    value: "Brufut Highway\nTranquil"
+  },
+  {
+    name: "Bakoteh Branch",
+    value: "Manjai Highway"
+  },
+  {
+    name: "Latrikunda Branch",
+    value: "Latrikuda Sabiji\nLatrikunda"
+  },
+  {
+    name: "Brikama Branch",
+    value: "Mosque Road\nBrikama"
+  },
+  {
+    name: "Farafenni Branch",
+    value: "Farafenni"
+  },
+  {
+    name: "Basse Branch",
+    value: "Basse"
+  }
+]
+
+export default function DynamicSignatureCard({ contactInfo, selectedBranch, showDownload = false }: DynamicSignatureCardProps) {
   const cardRef = useRef<HTMLDivElement>(null)
   const [isGeneratingPNG, setIsGeneratingPNG] = useState(false)
+  
+  // Use prop or default to first branch
+  const currentBranch = selectedBranch || branchAddresses[0]
 
   const downloadAsPNG = async () => {
     if (!cardRef.current) return
@@ -237,8 +283,12 @@ export default function DynamicSignatureCard({ contactInfo, showDownload = false
                   marginLeft: "-8px",
                 }}
               >
-                19 Kairaba Avenue, <br />Kanifing, KMC, P.O Box 1415 <br /> The Gambia
-        
+                {currentBranch.value.split('\n').map((line, index) => (
+                  <span key={index}>
+                    {line}
+                    {index < currentBranch.value.split('\n').length - 1 && <br />}
+                  </span>
+                ))}
               </span>
             </div>
 

@@ -17,9 +17,11 @@
   --secondary-foreground: #404040;
   --muted: #f7f7f7;
   --muted-foreground: #8a8a8a;
-  --accent: #f7f7f7;
-  --accent-foreground: #404040;
-  --destructive: #dc2626;
+  --accent: #f0f8ff;
+  --accent-foreground: #1e293b;
+  --accent-light: #D4EDDA; /* A light green color */
+
+  --destructive: 0 84.2% 60.2%;
   --destructive-foreground: #dc2626;
   --border: #e5e5e5;
   --input: #e5e5e5;
