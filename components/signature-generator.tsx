@@ -54,6 +54,14 @@ const branchAddresses = [
   {
     name: "Basse Branch",
     value: "Basse Santosu,\nBasse, URR, P.O Box 1415\nThe Gambia"
+  },
+  {
+    name: "Numuyel Agency",
+    value: "Upper River Region,\nNumuyel,URR, P.O Box 1415\nThe Gambia"
+  },
+  {
+    name: "Garawol Agency",
+    value: "Upper River Region,\nGarawol, URR, P.O Box 1415\nThe Gambia"
   }
 ]
 
