@@ -58,6 +58,7 @@ export default function DynamicSignatureCard({ contactInfo, showDownload = false
           padding: "10px",
           width: "100%",
           maxWidth: "360px",
+          minWidth: "360px",
           maxHeight: "155px",
           position: "relative",
           overflow: "hidden",
@@ -211,7 +212,9 @@ export default function DynamicSignatureCard({ contactInfo, showDownload = false
                 gridTemplateColumns: "24px 1fr",
                 alignItems: "left",
                 gap: "3px",
+                marginRight: "10px",
                 height: "14px",
+                minWidth: "120px",
                 color: "#374151",
               }}
             >
