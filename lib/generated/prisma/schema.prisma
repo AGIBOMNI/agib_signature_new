@@ -1,0 +1,22 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model UserSignature {
+  id           String   @id @default(cuid())
+  fullName     String   @map("full_name")
+  position     String
+  email        String
+  phoneNumber  String   @map("phone_number")
+  officeNumber String?  @map("office_number")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  @@map("user_signatures")
+}
