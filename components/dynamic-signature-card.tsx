@@ -82,7 +82,7 @@ export default function DynamicSignatureCard({ contactInfo, selectedBranch, show
         allowTaint: true,
       })
       const link = document.createElement("a")
-      link.download = `${contactInfo.fullName.replace(/\s+/g, "_")}_business_card.png`
+      link.download = `${contactInfo.fullName.replace(/\s+/g, "_")}_signature_card.png`
       link.href = canvas.toDataURL("image/png")
       link.click()
     } catch (error) {
@@ -146,13 +146,18 @@ export default function DynamicSignatureCard({ contactInfo, selectedBranch, show
             bottom: "12px",
             left: "-12px",
             width: "220px",
-            height: "8px",
+            height: "10px",
             // borderRadius: "50%",
-            backgroundColor: "rgba(105, 183, 74, 1)" ,
+            backgroundColor:  "rgba(105, 183, 74, 1)" ,
             // "rgba(105, 183, 74, 1)",
             zIndex: 0,
+            color: "#fffcfaff",
+            fontSize: "7px",
+            textAlign: "left",
+            paddingLeft: "28px",
+            paddingTop: isGeneratingPNG ? "-20px" : "0px",
           }}
-        ></div>
+        ><h6 style={{marginTop: isGeneratingPNG ? '-5px' : "0px"}}>Your Investment Partner</h6></div>
 
 
         {/* ...... */}

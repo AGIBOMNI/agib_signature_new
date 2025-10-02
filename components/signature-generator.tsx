@@ -25,7 +25,7 @@ const branchAddresses = [
   },
   {
     name: "Banjul Branch",
-    value: "Becca Plaza\n5/6 Liberation Avenue ,P.O Box 1415\nThe Banjul"
+    value: "Becca Plaza 5/6 Liberation Avenue,\nBCC, Banjul P.O Box 1415\nThe Gambia"
   },
   {
     name: "New Jeshwang Branch",
