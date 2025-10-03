@@ -106,7 +106,7 @@ export default function SignatureGenerator() {
       <div className="max-w-7xl mx-auto mb-20">
         <div className="flex justify-center">
           <Image
-            src="/agib-logo.png"
+            src="/Agib.jpeg"
             alt="AGIB Logo"
             width={250}
             height={80}
@@ -115,8 +115,8 @@ export default function SignatureGenerator() {
         </div>
       </div>
       
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 h-full">
+      <div className="max-w-7xl mx-auto" >
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 h-full" >
           <Card className="h-fit">
             <div style={{ backgroundColor: "#68b74a", marginTop: "-1.5rem" }} className="px-6 py-4 rounded-t-lg ">
               <div className="flex items-center gap-3 text-white">
@@ -139,7 +139,7 @@ export default function SignatureGenerator() {
                     <Input
                       id="fullName"
                       type="text"
-                      placeholder="Alioune Badara"
+                      placeholder="Alioune Badara Keita"
                       value={contactInfo.fullName}
                       onChange={(e) => handleInputChange("fullName", e.target.value)}
                       className="h-12"
@@ -250,7 +250,7 @@ export default function SignatureGenerator() {
             </div>
           </Card>
 
-          <Card className="h-fit">
+          <Card className="h-fit" style={{height: '435px'}}>
             <div style={{ backgroundColor: "#68b74a", marginTop: "-1.5rem" }} className="px-6 py-4 rounded-t-lg">
               <div className="flex items-center gap-3 text-white">
                 <Eye className="w-6 h-6" />
@@ -274,7 +274,7 @@ export default function SignatureGenerator() {
             </div>
 
             {!showSignature && (
-          <div className="mt-6 flex justify-center">
+          <div className=" flex justify-center">
             <Button
               onClick={handleGenerateCard}
               disabled={!isFormValid}

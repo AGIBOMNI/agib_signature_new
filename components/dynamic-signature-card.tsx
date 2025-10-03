@@ -335,7 +335,7 @@ export default function DynamicSignatureCard({ contactInfo, selectedBranch, show
                   fontSize: "6px",
                   lineHeight: "14px",
                   alignSelf: "center",
-                  marginTop: isGeneratingPNG ? "-12px" : "0px",
+                  marginTop: isGeneratingPNG ? "-10px" : "0px",
                 }}
               >
                +220 {contactInfo.phoneNumber}
@@ -369,7 +369,7 @@ export default function DynamicSignatureCard({ contactInfo, selectedBranch, show
                   fontSize: "6px",
                   lineHeight: "14px",
                   alignSelf: "center",
-                  marginTop: isGeneratingPNG ? "-12px" : "0px",
+                  marginTop: isGeneratingPNG ? "-10px" : "0px",
                 }}
               >
               {contactInfo.officeNumber ? ` +220 ${contactInfo.officeNumber}` : ""}
@@ -431,7 +431,7 @@ export default function DynamicSignatureCard({ contactInfo, selectedBranch, show
                   fontSize: "6px",
                   lineHeight: "14px",
                   alignSelf: "center",
-                  marginTop: isGeneratingPNG ? "-12px" : "0px",
+                  marginTop: isGeneratingPNG ? "-10px" : "0px",
                 }}
               >
                 www.agib.gm
